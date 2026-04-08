@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PetCare — Gestión de mascotas</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="app-root">
+    <aside class="sidebar" aria-label="Barra lateral principal">
+      <div class="sidebar-top">
+        <a href="#" class="logo" aria-label="PetCare logo">
+          <img src="" alt="PetCare" aria-hidden="true">
+          <span class="brand">PetCare</span>
+        </a>
+      </div>
+
+      <nav class="nav" aria-label="Navegación principal">
+        <ul>
+          <li><button class="nav-item" data-tab="inicio" aria-controls="inicio">Inicio</button></li>
+          <li><button class="nav-item" data-tab="acceso" aria-controls="acceso">Acceso</button></li>
+          <li><button class="nav-item" data-tab="servicios" aria-controls="servicios">Servicios</button></li>
+          <li><button class="nav-item" data-tab="mascotas" aria-controls="mascotas">Mascotas</button></li>
+          <li><button class="nav-item" data-tab="reporte" aria-controls="reporte">Reporte</button></li>
+        </ul>
+      </nav>
+
+      <footer class="sidebar-footer">
+        <div class="user-badge" role="status">
+          <span class="avatar" aria-hidden="true"></span>
+          <div class="user-info">
+            <div class="user-name">Usuario</div>
+            <div class="user-role">Administrador</div>
+          </div>
+        </div>
+        <button class="btn-logout" type="button">Salir</button>
+      </footer>
+    </aside>
+
+    <main class="main-content">
+      <!-- Inicio -->
+      <section id="inicio" class="section active" aria-labelledby="inicio-title">
+        <header class="section-header">
+          <h1 id="inicio-title">Bienvenido a PetCare</h1>
+        </header>
+
+        <div class="banner" role="img" aria-label="Banner de bienvenida">
+          <div class="banner-content">
+            <h2>bienvenido a pet care</h2>
+          </div>
+        </div>
+
+        <article class="card greeting-card">
+          <h2>Saludo</h2>
+          <form id="greeting-form">
+            <label for="greeting-name">Tu nombre</label>
+            <input id="greeting-name" name="greeting-name" type="text" required>
+            <button type="submit" class="btn-primary">Enviar saludo</button>
+          </form>
+        </article>
+      </section>
+
+      <!-- Acceso -->
+      <section id="acceso" class="section" aria-labelledby="acceso-title">
+        <header class="section-header">
+          <h1 id="acceso-title">Acceso</h1>
+        </header>
+
+        <div class="grid">
+          <article class="card">
+            <h2>Registro</h2>
+            <form id="register-form">
+              <label for="register-name">Nombre</label>
+              <input id="register-name" name="register-name" type="text" required>
+
+              <label for="register-email">Correo</label>
+              <input id="register-email" name="register-email" type="email" required>
+
+              <label for="register-password">Contraseña</label>
+              <input id="register-password" name="register-password" type="password" required>
+
+              <button type="submit" class="btn-primary">Crear cuenta</button>
+            </form>
+          </article>
+
+          <article class="card">
+            <h2>Login</h2>
+            <form id="login-form">
+              <label for="login-email">Correo</label>
+              <input id="login-email" name="login-email" type="email" required>
+
+              <label for="login-password">Contraseña</label>
+              <input id="login-password" name="login-password" type="password" required>
+
+              <button type="submit" class="btn-primary">Acceder</button>
+            </form>
+          </article>
+        </div>
+      </section>
+
+      <!-- Servicios -->
+      <section id="servicios" class="section" aria-labelledby="servicios-title">
+        <header class="section-header">
+          <h1 id="servicios-title">Servicios</h1>
+        </header>
+
+        <article class="card">
+          <h2>Agregar servicio</h2>
+          <form id="service-form">
+            <label for="service-name">Nombre del servicio</label>
+            <input id="service-name" name="service-name" type="text" required>
+
+            <label for="service-price">Precio</label>
+            <input id="service-price" name="service-price" type="number" step="0.01" required>
+
+            <button type="submit" class="btn-primary">Agregar</button>
+          </form>
+        </article>
+
+        <article class="card">
+          <h2>Lista de servicios</h2>
+          <ul id="services-list" class="list"></ul>
+        </article>
+      </section>
+
+      <!-- Mascotas -->
+      <section id="mascotas" class="section" aria-labelledby="mascotas-title">
+        <header class="section-header">
+          <h1 id="mascotas-title">Mascotas</h1>
+        </header>
+
+        <article class="card">
+          <h2>Registrar mascota</h2>
+          <form id="pet-form">
+            <label for="pet-email">Correo del propietario</label>
+            <input id="pet-email" name="pet-email" type="email" required>
+
+            <label for="pet-name">Nombre de la mascota</label>
+            <input id="pet-name" name="pet-name" type="text" required>
+
+            <label for="pet-service">Servicio</label>
+            <select id="pet-service" name="pet-service" required>
+              <option value="">Seleccione un servicio</option>
+            </select>
+
+            <label for="pet-date">Fecha</label>
+            <input id="pet-date" name="pet-date" type="date" required>
+
+            <button type="submit" class="btn-primary">Registrar mascota</button>
+          </form>
+        </article>
+
+        <article class="card">
+          <h2>Buscar mascotas</h2>
+          <label for="pet-search">Buscar por nombre o correo</label>
+          <input id="pet-search" name="pet-search" type="search" placeholder="Buscar...">
+          <ul id="pets-list" class="list"></ul>
+        </article>
+      </section>
+
+      <!-- Reporte -->
+      <section id="reporte" class="section" aria-labelledby="reporte-title">
+        <header class="section-header">
+          <h1 id="reporte-title">Reporte</h1>
+        </header>
+
+        <article class="card">
+          <h2>Buscar por correo</h2>
+          <form id="report-form">
+            <label for="report-email">Correo</label>
+            <input id="report-email" name="report-email" type="email" required>
+            <button type="submit" class="btn-primary">Buscar</button>
+          </form>
+        </article>
+
+        <article class="card">
+          <h2>Resultados</h2>
+          <div id="report-results" class="results" aria-live="polite"></div>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
